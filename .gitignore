@@ -5,3 +5,4 @@ coverage
 coverage.json
 gas-report.txt
 .env
+.DS_Store
