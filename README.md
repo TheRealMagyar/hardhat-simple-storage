@@ -62,7 +62,7 @@ gas-report.txt
 ```
 
 ## ⚙️ Usage
-**Deploy**
+### **Deploy**
 ```bash
 yarn hardhat run scripts/deploy.js
 ```
@@ -129,7 +129,9 @@ Run a test: `yarn hardhat test` and it'll create a **gas-report.txt** file with 
 
 ### **Coverage**
 _It is an important tool for testing. You can see which rows are covered in the SimpleStorage.sol file._
-`yarn hardhat coverage`
+```bash
+yarn hardhat coverage
+```
 
 ## 🔧 Settings (hardhat.config.js)
 These are the default settings. The gas-reporter is disabled in default mode.
