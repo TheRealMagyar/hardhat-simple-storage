@@ -4,42 +4,53 @@
 
 Basically, it is a simple Hardhat project. The project contains a Solidity smart contract, which can be deployed to various blockchains such as Sepolia, Ganache, and, of course, Hardhat’s local chain. This project serves as an example of how to deploy smart contracts easily.
 
-####Folders
-**Contract folder**
-You can put your contracts here.
-**Scripts folder**
-This folder is for your scripts.
-**Tasks folder**
-Here you can create custom hardhat tasks.
-**Test folder**
-Here you can write test for your scripts.
+### Folders
 
-##👋 Quick start
-**1.** Download the repo
-`git clone https://github.com/TheRealMagyar/hardhat-simple-storage`
+- **Contract folder**  
+  You can put your contracts here.
 
-**2.** Go into the project folder
-`cd hardhat-simple-storage`
+- **Scripts folder**  
+  This folder is for your scripts.
 
-**3.** install the packages. (I use yarn package manager, but you can use npm as well)
-`yarn`
+- **Tasks folder**  
+  Here you can create custom Hardhat tasks.
 
-**4.** Create a **.env** file in the project folder and paste the stuffs below.
+- **Test folder**  
+  Here you can write tests for your scripts.
 
-```json
-SEPOLIA_RPC_URL = https://1rpc.io/sepolia
-METAMASK_PRIVATE_KEY = key
-GANACHE_RPC_URL = HTTP://127.0.0.1:7545
-GANACHE_PRIVATE_KEY = key
-ETHERSCAN_API_KEY = api-key
-COINMARKETCAP_API_KEY = api-key
+## 👋 Quick start
+
+**1.** Download the repo:  
+```bash
+git clone https://github.com/TheRealMagyar/hardhat-simple-storage
+```
+
+**2.** Go into the project folder:  
+```bash
+cd hardhat-simple-storage
+```
+
+**3.** Install the packages (I use yarn package manager, but you can use npm as well):  
+```bash
+yarn
+```
+
+**4.** Create a **.env** file in the project folder and paste the following:
+
+```bash
+SEPOLIA_RPC_URL=https://1rpc.io/sepolia
+METAMASK_PRIVATE_KEY=key
+GANACHE_RPC_URL=HTTP://127.0.0.1:7545
+GANACHE_PRIVATE_KEY=key
+ETHERSCAN_API_KEY=api-key
+COINMARKETCAP_API_KEY=api-key
 ```
 
 fill in with your api keys and private keys.
 
 **5.** Create a .gitignore file (it is optional)
 
-```json
+```bash
 node_modules
 artifacts
 cache
@@ -50,41 +61,59 @@ gas-report.txt
 .DS_Store
 ```
 
-##⚙️ Usage
+## ⚙️ Usage
 **Deploy**
-`yarn hardhat run scripts/deploy.js`
+```bash
+yarn hardhat run scripts/deploy.js
+```
 
-**Deploy on different chains**
+### **Deploy on different chains**
 _(You can use another networks also, but at first you have to setup them in hardhat.config.js)_
-`yarn hardhat run scripts/deploy.js --netowork sepolia`
+```bash
+yarn hardhat run scripts/deploy.js --netowork sepolia
+```
 
-**Help**
-`yarn hardhat help`
+### **Help**
+```bash
+yarn hardhat help
+```
 
-**Run tests**
-`yarn hardhat test`
+### **Run tests**
+```bash
+yarn hardhat test
+```
 
-**It shows some test address**
-`npx hardhat node`
+### **It shows some test address**
+```bash
+npx hardhat node
+```
 
-**Complie contracts**
-`yarn compile`
+### **Complie contracts**
+```bash
+yarn compile
+```
 
-**Console**
+### **Console**
 _(Run Codes Easily In The Console)_
-`yarn hardhat console`
-`yarn hardhat console --network sepolia`
+```bash
+yarn hardhat console
+```
+```bash
+yarn hardhat console --network sepolia
+```
 
-**Block number**
+### **Block number**
 _(it checks the current block number on the chain)_
-`yarn hardhat block-number --network sepolia`
+```bash
+yarn hardhat block-number --network sepolia
+```
 
-**Gas reporter**
+### **Gas reporter**
 _(it reports you the transaction costs)_
 At first you have to go in the hardhat.config.js file and enable the gas-reporter.
 It should look like this:
 
-```json
+```js
   gasReporter: {
            enabled: true,
            outputFile: "gas-report.txt",
@@ -98,16 +127,16 @@ It should look like this:
 
 Run a test: `yarn hardhat test` and it'll create a **gas-report.txt** file with the report for you.
 
-**Coverage**
+### **Coverage**
 _It is an important tool for testing. You can see which rows are covered in the SimpleStorage.sol file._
 `yarn hardhat coverage`
 
-##🔧 Settings (hardhat.config.js)
+## 🔧 Settings (hardhat.config.js)
 These are the default settings. The gas-reporter is disabled in default mode.
 At the networks you can add another networks.
 If you use another solidity version you can change it in the 20th row.
 
-```json
+```js
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
@@ -146,18 +175,25 @@ module.exports = {
 };
 ```
 
-##📦 Packages
+## 📦 Packages
 **Hardhat**
-`yarn add --dev hardhat`
+```bash
+yarn add --dev hardhat
+```
 
-##👷‍♀️ Hardhat installation (if you need this)
-`yarn hardhat`
+##
+👷‍♀️ Hardhat installation (if you need this)
+```bash
+yarn hardhat
+```
 
 -   create a javascript project
 -   root (default)
 -   .gitignore YES
 -   Do you want dependencies? YES
 
-##🍓 Prettier
+## 🍓 Prettier
 
-`yarn add --dev prettier prettier-plugin-solidity`
+```bash
+yarn add --dev prettier prettier-plugin-solidity
+```
