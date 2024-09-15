@@ -1,13 +1,163 @@
-# Sample Hardhat Project
+# Hardhat Simple Storage
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+## Description
 
-Try running some of the following tasks:
+Basically, it is a simple Hardhat project. The project contains a Solidity smart contract, which can be deployed to various blockchains such as Sepolia, Ganache, and, of course, Hardhat’s local chain. This project serves as an example of how to deploy smart contracts easily.
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+####Folders
+**Contract folder**
+You can put your contracts here.
+**Scripts folder**
+This folder is for your scripts.
+**Tasks folder**
+Here you can create custom hardhat tasks.
+**Test folder**
+Here you can write test for your scripts.
+
+##👋 Quick start
+**1.** Download the repo
+`git clone https://github.com/TheRealMagyar/hardhat-simple-storage`
+
+**2.** Go into the project folder
+`cd hardhat-simple-storage`
+
+**3.** install the packages. (I use yarn package manager, but you can use npm as well)
+`yarn`
+
+**4.** Create a **.env** file in the project folder and paste the stuffs below.
+
+```json
+SEPOLIA_RPC_URL = https://1rpc.io/sepolia
+METAMASK_PRIVATE_KEY = key
+GANACHE_RPC_URL = HTTP://127.0.0.1:7545
+GANACHE_PRIVATE_KEY = key
+ETHERSCAN_API_KEY = api-key
+COINMARKETCAP_API_KEY = api-key
 ```
+
+fill in with your api keys and private keys.
+
+**5.** Create a .gitignore file (it is optional)
+
+```json
+node_modules
+artifacts
+cache
+coverage
+coverage.json
+gas-report.txt
+.env
+.DS_Store
+```
+
+##⚙️ Usage
+**Deploy**
+`yarn hardhat run scripts/deploy.js`
+
+**Deploy on different chains**
+_(You can use another networks also, but at first you have to setup them in hardhat.config.js)_
+`yarn hardhat run scripts/deploy.js --netowork sepolia`
+
+**Help**
+`yarn hardhat help`
+
+**Run tests**
+`yarn hardhat test`
+
+**It shows some test address**
+`npx hardhat node`
+
+**Complie contracts**
+`yarn compile`
+
+**Console**
+_(Run Codes Easily In The Console)_
+`yarn hardhat console`
+`yarn hardhat console --network sepolia`
+
+**Block number**
+_(it checks the current block number on the chain)_
+`yarn hardhat block-number --network sepolia`
+
+**Gas reporter**
+_(it reports you the transaction costs)_
+At first you have to go in the hardhat.config.js file and enable the gas-reporter.
+It should look like this:
+
+```json
+  gasReporter: {
+           enabled: true,
+           outputFile: "gas-report.txt",
+           noColors: true,
+           currency: "USD",
+           coinmarketcap: COINMARKETCAP_API_KEY,
+           token: "ETH",
+           offline: true,
+       },
+```
+
+Run a test: `yarn hardhat test` and it'll create a **gas-report.txt** file with the report for you.
+
+**Coverage**
+_It is an important tool for testing. You can see which rows are covered in the SimpleStorage.sol file._
+`yarn hardhat coverage`
+
+##🔧 Settings (hardhat.config.js)
+These are the default settings. The gas-reporter is disabled in default mode.
+At the networks you can add another networks.
+If you use another solidity version you can change it in the 20th row.
+
+```json
+module.exports = {
+    defaultNetwork: "hardhat",
+    networks: {
+        sepolia: {
+            url: SEPOLIA_RPC_URL,
+            accounts: [METAMASK_PRIVATE_KEY],
+            chainId: 11155111,
+        },
+        ganache: {
+            url: GANACHE_RPC_URL,
+            account: GANACHE_PRIVATE_KEY,
+            chainId: 1337,
+        },
+        localhost: {
+            url: "http://127.0.0.1:8545/",
+            //accounts: Thanks hardhat lmfao!
+            chainId: 31337,
+        },
+    },
+    solidity: "0.8.8",
+    etherscan: {
+        apiKey: ETHERSCAN_API_KEY,
+    },
+    sourcify: {
+        enabled: true,
+    },
+    gasReporter: {
+        enabled: false,
+        outputFile: "gas-report.txt",
+        noColors: true,
+        currency: "USD",
+        coinmarketcap: COINMARKETCAP_API_KEY,
+        token: "ETH",
+        offline: true,
+    },
+};
+```
+
+##📦 Packages
+**Hardhat**
+`yarn add --dev hardhat`
+
+##👷‍♀️ Hardhat installation (if you need this)
+`yarn hardhat`
+
+-   create a javascript project
+-   root (default)
+-   .gitignore YES
+-   Do you want dependencies? YES
+
+##🍓 Prettier
+
+`yarn add --dev prettier prettier-plugin-solidity`
