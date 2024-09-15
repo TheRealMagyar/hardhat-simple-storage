@@ -88,7 +88,7 @@ yarn hardhat test
 npx hardhat node
 ```
 
-### **Complie contracts**
+### **Compile contracts**
 ```bash
 yarn compile
 ```
