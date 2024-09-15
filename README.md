@@ -90,7 +90,7 @@ npx hardhat node
 
 ### **Compile contracts**
 ```bash
-yarn compile
+yarn hardhat compile
 ```
 
 ### **Console**
