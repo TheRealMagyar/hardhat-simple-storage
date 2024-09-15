@@ -183,8 +183,7 @@ module.exports = {
 yarn add --dev hardhat
 ```
 
-##
-👷‍♀️ Hardhat installation (if you need this)
+## 👷‍♀️ Hardhat installation (if you need this)
 ```bash
 yarn hardhat
 ```
